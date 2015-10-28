@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    
+    @post = Post.find(params[:id])
   end
 
   def new
@@ -13,19 +13,42 @@ class PostsController < ApplicationController
   end
 
   def create
-    #todo user id parameter
+    @user = current_user
     @post = current_user.posts.build(post_params)
-    @post.save
-    redirect_to user_posts_path(current_user.id)
+    if @post.save
+      redirect_to user_posts_path(@post)
+    else
+      # redirect_to new_user_post_path(current_user.id)
+      render :new
+    end
   end
 
   def edit
+    @user = current_user
+
+    @post = Post.find(params[:id])
+
   end
 
   def update
+    @user = current_user
+
+    @post = Post.find(params[:id])
+    @post.title = post_params["title"]
+    @post.address = post_params["address"]
+    @post.description = post_params["description"]
+    if @post.save
+      redirect_to user_posts_path(@post)
+    else
+      # redirect_to new_user_post_path(current_user.id)
+      render :new
+    end
   end
 
   def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to user_posts_path(current_user.id)
   end
 
   private

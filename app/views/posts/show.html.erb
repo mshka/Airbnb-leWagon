@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="row" id="rowHomePage">
+    <div id="show-post">
+      <h2><u><%=@post.title.capitalize%>:</u></h2>
+      <h3>Address: <%=@post.address%></h3>
+      <h3>Description: <%=@post.description%></h3>
+      <h3><%= link_to "" ,user_post_path(current_user.id,@post.id), method: :delete, class: "glyphicon glyphicon-trash",data: {confirm: "Are you sure?"} %>
+        &nbsp
+        <%= link_to "" ,edit_user_post_path(current_user.id,@post.id), class: "glyphicon glyphicon-pencil" %>
+      </h3>
+
+    </div>
+  </div>
+</div>

@@ -1,2 +1,43 @@
-<h1>Posts#edit</h1>
-<p>Find me in app/views/posts/edit.html.erb</p>
+<div class="container">
+  <div class="row" id="rowHomePage">
+    <div  id="colHomePage">
+      <h1 id="postsindextitle">Edit the listing:</h1><hr>
+
+
+<div class="panel-body" id="listing-edit-form">
+        <%= form_for [@user, @post] do |f| %>
+
+
+            <% if @post.errors.any? %>
+              <div id="error_explanation">
+                <p class="alert alert-danger alert-sm">
+                  <% @post.errors.full_messages.each do |message| %>
+                    <%= message %><br/>
+                  <% end %>
+                </p>
+              </div>
+            <%end%>
+
+        <div class="field form-group">
+          <h3><%= f.label "Title" %></h3>
+          <%= f.text_field :title, autofocus: true, class: "form-control input-medium" %>
+        </div>
+
+        <div class="field form-group">
+          <h3><%= f.label "Description" %></h3>
+          <%= f.text_area :description, autocomplete: "off", class: "form-control input-medium", rows: "7" %>
+        </div>
+
+        <div class="field form-group">
+          <h3><%= f.label "Address" %></h3>
+          <%= f.text_field :address, autocomplete: "off", class: "form-control input-medium" %>
+        </div>
+
+        <div class="actions form-group divFrmButton">
+        <%= f.submit "Edit", class: "form-control btn btn-primary" %>
+        </div>
+        <% end %>
+    </div>
+  </div>
+</div>
+

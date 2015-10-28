@@ -1,0 +1,32 @@
+<div class="container">
+	<div class="row" id="rowHomePage">
+		<div  id="colHomePage">
+			<h1 id="postsindextitle">Create New Listing:</h1><hr>
+
+
+<div class="panel-body" id="listing-form">
+        <%= form_for [@user, @post] do |f| %>
+
+        <div class="field form-group">
+          <h2><%= f.label "Title" %></h2>
+          <%= f.text_field :title, autofocus: true, class: "form-control input-lg" %>
+        </div>
+
+        <div class="field form-group">
+          <h2><%= f.label "Description" %></h2>
+          <%= f.text_area :description, autocomplete: "off", class: "form-control input-lg", rows: "7" %>
+        </div>
+
+        <div class="field form-group">
+          <h2><%= f.label "Address" %></h2>
+          <%= f.text_field :address, autocomplete: "off", class: "form-control input-lg" %>
+        </div>
+
+        <div class="actions form-group divFrmButton">
+        <%= f.submit "Create", class: "form-control btn btn-primary" %>
+        </div>
+        <% end %>
+		</div>
+	</div>
+</div>
+

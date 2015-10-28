@@ -1,0 +1,19 @@
+
+
+
+
+
+<div class="container">
+  <div class="row" id="rowHomePage">
+    <div  id="colHomePage">
+
+       <img src= <%=current_user.picture%> class="img-circle img-small" id="profilepic_profilepage" width="10%" height="10%">
+        <br/><br/>
+        <h4><strong> Name: </strong><%= @user.first_name%> <%=@user.last_name%></h4>
+        <h4><strong> Email: </strong><%= @user.email %></h4>
+
+
+    </div> <!-- end columns -->
+  </div><!-- end row -->
+</div><!-- end container -->
+

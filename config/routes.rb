@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'user_profile/show'
+
+  get 'user_profile/edit'
+
   root "home#home"
   devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   # The priority is based upon order of creation: first created -> highest priority.

@@ -10,8 +10,12 @@
 <%= render "shared/navbar" %>
 
 <div class="container">
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <%if notice != nil %>
+    <p class="alert alert-success" id="notice"><a class="close" data-dismiss="alert">×</a><%= notice %></p>
+  <% end %>
+  <%if alert != nil %>
+    <p class="alert alert-danger alert-sm" id="alert"><a class="close" data-dismiss="alert">×</a><%= alert %></p>
+  <% end %>
   <%= yield %>
 </div>
 </body>

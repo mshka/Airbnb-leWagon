@@ -16,7 +16,6 @@ body{
 #colHomePage{
 	text-align: center;
 	h1,h3{
-		color: #f40000;
 		font-weight: bold;
 	}
 	h1{
@@ -36,4 +35,24 @@ body{
 	input[type=submit]{
 		width: 50%!important;
 	}
+}
+
+#searchbar{
+  width: 75%;
+  margin-left: 13.33%;
+}
+
+#notice{
+  text-align:center;
+  width: cover;
+}
+
+#alert{
+  text-align:center;
+  width: cover;
+
+}
+
+#seachbar_homepage{
+  width: 100%;
 }

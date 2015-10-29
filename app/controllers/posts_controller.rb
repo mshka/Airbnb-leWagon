@@ -41,7 +41,7 @@ class PostsController < ApplicationController
       redirect_to user_posts_path(@post)
     else
       # redirect_to new_user_post_path(current_user.id)
-      render :new
+      render :edit
     end
   end
 

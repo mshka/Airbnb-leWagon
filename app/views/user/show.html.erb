@@ -15,7 +15,8 @@
         <h4><strong> Name: </strong><%= @user.first_name%> <%=@user.last_name%></h4>
         <h4><strong> Phone number: </strong><%= @user.phone_number%></h4>
         <h4><strong> Email: </strong><%= @user.email %></h4>
-
+          <h4><%= link_to "Edit-account" ,edit_user_registration_path, class: "glyphicon glyphicon-pencil" %>&nbsp&nbsp&nbsp
+          <%= link_to "Delete-account" ,user_path,method: :delete, class: "glyphicon glyphicon-trash",data: {confirm: "Are you sure?"} %></h4>
 
     </div> <!-- end columns -->
   </div><!-- end row -->

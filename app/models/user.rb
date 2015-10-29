@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
   has_many :posts, dependent: :destroy
-  # validates_presence_of :first_name, :message => "can't be empty"
-  # validates_presence_of :last_name, :message => "can't be empty"
-  # validates_presence_of :phone_number, :message => "can't be empty"
+  validates_presence_of :first_name, :message => "can't be empty"
+  validates_presence_of :last_name, :message => "can't be empty"
+  validates_presence_of :phone_number, :message => "can't be empty"
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

@@ -6,8 +6,15 @@
       </div>
       <div class="panel-body">
         <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
-
+        <% if @user.errors.any? %>
+          <div id="error_explanation">
+            <p class="alert alert-danger alert-sm">
+              <% @user.errors.full_messages.each do |message| %>
+                <%= message %><br/>
+              <% end %>
+            </p>
+          </div>
+        <%end%>
 
         <div class="field form-group">
           <%= f.label :first_name %>

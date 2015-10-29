@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20151029123739) do
     t.datetime "updated_at",                          null: false
     t.string   "provider"
     t.string   "uid"
-    t.string   "picture"        default: "default-pp.jpg"
+    t.string   "picture"
     t.string   "first_name"
     t.string   "last_name"
     t.string   "token"

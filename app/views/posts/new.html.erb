@@ -3,8 +3,8 @@
 		<div  id="colHomePage">
 			<h1 id="postsindextitle">Create New Listing:</h1><hr>
         <div class="panel-body" id="listing-new-form">
-          <%= form_for [@user, @post] do |f| %>
 
+          <%= form_for [@user, @post] do |f| %>
             <% if @post.errors.any? %>
               <div id="error_explanation">
                 <p class="alert alert-danger alert-sm">

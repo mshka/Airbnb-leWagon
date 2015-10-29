@@ -6,10 +6,14 @@
 <div class="container">
   <div class="row" id="rowHomePage">
     <div  id="colHomePage">
-
-       <img src= <%=current_user.picture%> class="img-circle img-small" id="profilepic_profilepage" width="10%" height="10%">
+        <% if @user.picture.nil? %>
+          <%= image_tag "default-pp.jpg", class: "img-circle img-small", id:"profilepic_profilepage",width: "10%",height: "10%"%>
+        <% else %>
+          <%= image_tag @user.picture, class: "img-circle img-small", id:"profilepic_profilepage",width: "10%",height: "10%"%>
+        <% end %>
         <br/><br/>
         <h4><strong> Name: </strong><%= @user.first_name%> <%=@user.last_name%></h4>
+        <h4><strong> Phone number: </strong><%= @user.phone_number%></h4>
         <h4><strong> Email: </strong><%= @user.email %></h4>
 
 

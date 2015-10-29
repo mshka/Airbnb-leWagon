@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row" id="rowHomePage">
+    <div  id="colHomePage">
+      <h1 id="postsindextitle">Create New Listing:</h1><hr>
+        <div class="panel-body" id="listing-new-form">
+          <%= form_for(@user) do |f| %>
+
+            <% if @post.errors.any? %>
+              <div id="error_explanation">
+                <p class="alert alert-danger alert-sm">
+                  <% @post.errors.full_messages.each do |message| %>
+                    <%= message %><br/>
+                  <% end %>
+                </p>
+              </div>
+            <%end%>
+
+            <div class="field form-group">
+              <h3><%= f.label "First name" %></h3>
+              <%= f.text_field :first_name, autofocus: true, class: "form-control input-medium" %>
+            </div>
+
+            <div class="field form-group">
+              <h3><%= f.label "Last name" %></h3>
+              <%= f.text_field :last_name, autocomplete: "off", class: "form-control input-medium" %>
+            </div>
+
+            <div class="field form-group">
+              <h3><%= f.label "Phone number" %></h3>
+              <%= f.text_field :phone_number, autocomplete: "off", class: "form-control input-medium" %>
+            </div>
+
+            <div class="actions form-group divFrmButton">
+            <%= f.submit "Save", class: "form-control btn btn-primary" %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

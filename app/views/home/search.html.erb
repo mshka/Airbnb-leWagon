@@ -1,8 +1,17 @@
-we found <%= pluralize(@posts.size, 'result')%>: <hr>
+
+<div class="container" id="seachbar_homepage">
+  <div class="row" id="rowHomePage">
+    <div  id="colSearch">
+<h2>There are <%= pluralize(@posts.size, 'result')%>: </h2><hr>
 <% @posts.each do |post|%>
-<%= post.title %><br/>
+<h3><%= post.title %></h3><br/>
 <%= post.address %><br/>
 <%= post.description %><br/>
+
+<hr>
 <% end %>
+    </div>
+  </div>
+</div>
 
 

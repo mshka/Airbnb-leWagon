@@ -50,13 +50,26 @@ class PostsController < ApplicationController
     redirect_to user_posts_path(current_user.id)
   end
 
-  def search
+  def book
+    @post = Post.find(params[:id])
+    @post.booked = true
+    @post.reserver = current_user.id
+    @post.save
+    redirect_to user_post_path(@post.user_id,@post.id)
+  end
 
+
+  def unbook
+    @post = Post.find(params[:id])
+    @post.booked = false
+    @post.reserver = nil
+    @post.save
+    redirect_to user_post_path(@post.user_id,@post.id)
   end
   private
 
   def post_params
-    params.require(:post).permit(:title,:description, :address)
+    params.require(:post).permit(:title,:description, :address,booked: false)
   end
 
 end

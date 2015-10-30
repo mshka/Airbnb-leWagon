@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20151029123739) do
     t.datetime "updated_at",  null: false
     t.boolean  "booked"
     t.integer  "reserver"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree

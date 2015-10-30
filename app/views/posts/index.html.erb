@@ -5,11 +5,15 @@
 			<h1>Here are your Posts:</h1><hr>
       <% if @posts != [] %>
 			<% @posts.each do |post| %>
-				<h3><%= link_to "" ,user_post_path(current_user.id,post.id), method: :delete, class: "glyphicon glyphicon-trash",data: {confirm: "Are you sure?"} %>
+				<h3>
+          <%= link_to "" ,user_post_path(current_user.id,post.id), method: :delete, class: "glyphicon glyphicon-trash",data: {confirm: "Are you sure?"} %>
 				&nbsp
 				<%= link_to "" ,edit_user_post_path(current_user.id,post.id), class: "glyphicon glyphicon-pencil" %>
 				&nbsp&nbsp
 				<%= link_to post.title, user_post_path(current_user.id,post.id)%> : <%= post.address %>.
+        <% if post.booked == true%>
+            <button class="btn btn-warning" ><span class="glyphicon glyphicon-exclamation-sign" /></button>
+          <%end%>
 				</h3>
 			<% end %>
       <% else %>

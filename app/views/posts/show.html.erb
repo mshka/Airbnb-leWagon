@@ -4,11 +4,26 @@
       <h2><u><%=@post.title.capitalize%>:</u></h2>
       <h3>Address: <%=@post.address%></h3>
       <h3>Description: <%=@post.description%></h3>
+      <% if @post.user_id == current_user.id %>
       <h3><%= link_to "" ,user_post_path(current_user.id,@post.id), method: :delete, class: "glyphicon glyphicon-trash",data: {confirm: "Are you sure?"} %>
         &nbsp
         <%= link_to "" ,edit_user_post_path(current_user.id,@post.id), class: "glyphicon glyphicon-pencil" %>
       </h3>
-
+      <% if @post.booked == true %>
+        <%= link_to "Bookers's info" ,user_path(@post.reserver), class: "btn btn-success btn-lg" %>
+        <% end %>
+      <% else %>
+        <% if @post.booked == true %>
+          <% if @post.reserver == current_user.id %>
+            <%= link_to "Cancel Reservation" ,unbook_path(@post.id), class: "btn btn-warning btn-lg" %>
+            <% else %>
+            <span class="btn btn-danger" value="booked"/>
+            <%end%>
+          <% else %>
+          <%= link_to "Book" ,book_path(@post.id), class: "btn btn-primary btn-lg" %>
+          <% end %>
+        <%= link_to "Poster's info" ,user_path(@post.user_id), class: "btn btn-primary btn-lg" %>
+      <%end%>
     </div>
   </div>
 </div>

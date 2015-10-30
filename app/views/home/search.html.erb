@@ -1,17 +1,29 @@
 
 <div class="container" id="seachbar_homepage">
   <div class="row" id="rowHomePage">
-    <div  id="colSearch">
-<h2>There are <%= pluralize(@posts.size, 'result')%>: </h2><hr>
-<% @posts.each do |post|%>
-<h3><%= post.title %></h3><br/>
-<%= post.address %><br/>
-<%= post.description %><br/>
+    <div  id="search_result">
+      <h2>There are <%= pluralize(@posts.size, 'result')%> for <%=@search_value%>: </h2>
+        <button class="btn btn-success" >Available for booking &nbsp <span class="glyphicon glyphicon-ok" /></button>
+        <button class="btn btn-warning">Booked by You  &nbsp  <span class="glyphicon glyphicon-user" /></button>
+        <button class="btn btn-danger">Not available for booking &nbsp <span class="glyphicon glyphicon-remove" /></button>
 
-<hr>
-<% end %>
+      <hr>
+      <% @posts.each do |post|%>
+          <h2><%= link_to post.title.capitalize, user_post_path(current_user.id,post.id)%> :
+          <% if post.booked == false %>
+             <button class="btn btn-success"><span class="glyphicon glyphicon-ok" /></button></h2>
+          <% else %>
+              <% if post.reserver == current_user.id %>
+                <button class="btn btn-warning"><span class="glyphicon glyphicon-user" /></button></h2>
+              <%else%>
+                <button class="btn btn-danger"><span class="glyphicon glyphicon-remove" /></button></h2>
+              <%end%>
+          <% end %>
+          <h3><%= post.address %></h3>
+          <%= post.description %><br/>
+          <hr>
+      <% end %>
     </div>
   </div>
 </div>
-
 

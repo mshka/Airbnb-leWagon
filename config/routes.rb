@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   get '/search', to: 'home#search'
+  get '/posts/:id/book', to: 'posts#book', as: :book
+  get '/posts/:id/unbook', to: 'posts#unbook', as: :unbook
+
   resources :user do
     resources :posts
   end

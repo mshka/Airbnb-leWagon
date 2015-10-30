@@ -50,6 +50,9 @@ class PostsController < ApplicationController
     redirect_to user_posts_path(current_user.id)
   end
 
+  def search
+
+  end
   private
 
   def post_params

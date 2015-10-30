@@ -1,0 +1,8 @@
+we found <%= pluralize(@posts.size, 'result')%>: <hr>
+<% @posts.each do |post|%>
+<%= post.title %><br/>
+<%= post.address %><br/>
+<%= post.description %><br/>
+<% end %>
+
+

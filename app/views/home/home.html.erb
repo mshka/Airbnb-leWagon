@@ -4,14 +4,16 @@
     <div  id="colHomePage">
       <h1>Le Wagon AirBnB</h1>
       <h3>Search and book your favorite place around the world</h3>
-        <div class="input-group" id="searchbar">
-          <input type="text" id="primary-search-bar" class="search-query form-control input-lg" placeholder="Where do you want to go?" name="searchvalue" />
-          <span class="input-group-btn" >
-            <button class="btn btn-info btn-lg" type="button" >
-              <span class=" glyphicon glyphicon-search" ></span>
-            </button>
-          </span>
-        </div>
+        <form action="search" method="get">
+          <div class="input-group" id="searchbar">
+            <input type="text" id="primary-search-bar" class="search-query form-control input-lg" placeholder="Where do you want to go?" name="searchvalue" />
+            <span class="input-group-btn" >
+              <button class="btn btn-info btn-lg" type="submit">
+                <span class=" glyphicon glyphicon-search" ></span>
+              </button>
+            </span>
+          </div>
+        </form>
     </div> <!-- end columns -->
   </div><!-- end row -->
 </div><!-- end container -->

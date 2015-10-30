@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get '/search', to: 'home#search'
   resources :user do
     resources :posts
   end
